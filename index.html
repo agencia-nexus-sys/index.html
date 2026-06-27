@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS NETWORK - ARCHIVO DETALLADO 0404</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ccc;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* DISEÑO INTERFAZ TÁCTICA DEL LOGO */
+        .nexus-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .nexus-emblem-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 350px;
+            background: radial-gradient(circle, #100505 0%, #050505 70%);
+            border: 2px solid #222;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .nexus-emblem-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .outer-ring {
+            width: 200px;
+            height: 200px;
+            border: 3px dashed #8b0000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotateRing 20s linear infinite;
+        }
+
+        .inner-ring {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #333;
+            border-top: 3px solid #ff0000;
+            border-bottom: 3px solid #ff0000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotateRingInverse 10s linear infinite;
+        }
+
+        .core-symbol {
+            width: 90px;
+            height: 90px;
+            background-color: #111;
+            border: 4px solid #8b0000;
+            transform: rotate(45deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+        }
+
+        .core-internal {
+            width: 45px;
+            height: 45px;
+            background: #ff0000;
+            transform: rotate(45deg);
+            box-shadow: 0 0 15px #ff0000;
+        }
+
+        .agency-tag {
+            position: absolute;
+            color: #666;
+            font-size: 10px;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .tag-top { top: 25px; color: #8b0000; }
+        .tag-bottom { bottom: 25px; font-size: 11px; color: #fff; }
+
+        /* CONTENIDO DEL EXPEDIENTE */
+        .terminal-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #0a0a0a;
+            border: 1px solid #222;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.9);
+        }
+
+        h1 { color: #ff0000; text-align: center; font-size: 20px; border-bottom: 2px solid #8b0000; padding-bottom: 10px; }
+        h2 { color: #8b0000; font-size: 16px; margin-top: 30px; border-bottom: 1px solid #333; }
+        h3 { color: #fff; font-size: 14px; }
+
+        .system-warning {
+            background-color: #1a0505;
+            border: 1px solid #ff0000;
+            color: #ff3333;
+            padding: 15px;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .blockquote-warning {
+            border-left: 3px solid #ff0000;
+            background-color: #111;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        ul { list-style-type: square; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        strong { color: #ff3333; }
+
+        ol { padding-left: 20px; }
+
+        @keyframes rotateRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes rotateRingInverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="nexus-header">
+        <div class="nexus-emblem-container">
+            <div class="agency-tag tag-top">NEXUS NETWORK // SYSTEM</div>
+            <div class="outer-ring">
+                <div class="inner-ring">
+                    <div class="core-symbol">
+                        <div class="core-internal"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="agency-tag tag-bottom">EL NEXO DE LA AGONÍA</div>
+        </div>
+    </div>
+
+    <div class="terminal-box">
+        <h1>[NEXUS NETWORK - ARCHIVO DE PERSONAL INTERNO]</h1>
+        <p style="text-align: center; font-size: 12px; color: #888;">REGISTRO CENTRAL DE ACTIVOS // SINDICATO INTERNACIONAL "EL NEXO DE LA AGONÍA"<br>ESTADO DEL SENSOR: CONEXIÓN INTERNA ENCRIPTADA (NIVEL OMEGA) // DESIGNACIÓN: OBJETO 0404</p>
+
+        <div class="system-warning">
+            AVISO DE CONTROL DE RIESGO DE ALTO NIVEL: Este expediente es de lectura obligatoria para todo el personal operativo en campo. El Activo 0404 es incontrolable y representa un peligro de muerte inmediato tanto para objetivos externos como para cualquier miembro de esta organización.
+        </div>
+
+        <h2>I. ESPECIFICACIONES DE REGISTRO E IDENTIFICACIÓN</h2>
+        <ul>
+            <li><strong>Identificación Nominal:</strong> NINGUNA. El activo carece de nombre legal o identidad civil rastreable. Ni la propia agencia posee información real sobre su identidad de nacimiento. Es identificado exclusivamente como Activo 0404.</li>
+            <li><strong>Protocolo de Reconocimiento QR:</strong> El activo porta un grabado subcutáneo enlazado a este código. Directiva para Agentes: Si sospecha de la presencia del 0404, use su escáner táctico. Si el sistema arroja esta ficha, aborte cualquier intento de interactuar y retírese de inmediato para evitar fuego cruzado.</li>
+            <li><strong>Origen y Adiestramiento:</strong> Ingresado a las instalaciones subterráneas a la edad de 6 años. Su historial de entrenamiento permanece clasificado como "Inexistente" debido a que sus capacidades han sobrepasado cualquier doctrina de la agencia.</li>
+            <li><strong>Mimetización Social (Uso de Civiles):</strong> El activo simula una rutina ordinaria y realiza salidas con civiles. Advertencia: El activo no posee vínculos afectivos; considera a estas personas estrictamente como herramientas logísticas o escudos tácticos.</li>
+            <li><strong>Protocolo de Indumentaria:</strong> Se le exige mantener la piel cubierta en su totalidad para evitar la exposición accidental del marcador QR u otras modificaciones dérmicas.</li>
+        </ul>
+
+        <h2>II. INFRAESTRUCTURA DE SOPORTE PERIMETRAL Y VIGILANCIA OCULTA</h2>
+        <p>Cualquier dron comercial o militar, vehículo sospechoso en tránsito, o individuo con conducta de observación en el área de operaciones forma parte de la red de la agencia. Incluso si los drones aparentan ser de uso civil, están operados por agentes encubiertos destinados a resguardar el perímetro del Activo 0404.</p>
+
+        <h2>III. EVALUACIÓN DE CONDUCTA Y PERFIL PSICOLÓGICO</h2>
+        <div class="blockquote-warning">
+            "El Activo 0404 carece de emociones humanas registrables. Su naturaleza es fría, directa y honesta, pero posee una alarmante capacidad para fingir emociones sociales con el fin de manipular. Es capaz de reescribir la percepción de cualquier objetivo y desarrolló una capacidad infalible para la detección inmediata de mentiras. Si un civil o activo descubre su vida real, tiene autorización para proceder a la eliminación física inmediata."<br><br>
+            -- Nota de la Dirección General
+        </div>
+
+        <h2>IV. FACTOR DE AMENAZA INTERNA (DIRECTIVA DE NO ENTROMETIMIENTO)</h2>
+        <ul>
+            <li><strong>Tolerancia Cero a la Curiosidad:</strong> Queda prohibido indagar en la vida privada del Activo 0404. Cualquier miembro que intente violar este perímetro será ejecutado por el propio activo.</li>
+            <li><strong>Política de No Intervención:</strong> Ante una ejecución interna, la agencia no intervendrá ni defenderá a su personal para evitar el riesgo de que el activo destruya la estructura entera de la organización.</li>
+        </ul>
+
+        <h2>V. INTRUSIÓN DE FUERZAS DE LA LEY</h2>
+        <p>Clasificado como amenaza de Nivel 5. Las tácticas policiales o de la policía militar estándar no tienen efecto ante él. Se ordena a los cuerpos policiales la cancelación de arrestos y la prioridad de evacuación perimetral; la confrontación directa resultará en bajas masivas en cuestión de segundos.</p>
+
+        <h2>VI. PROTOCOLO DE ALERTA Y VENTANA DE ESCAPE EN ENTORNOS PÚBLICOS</h2>
+        <p>Al escanear el QR, las terminales de la agencia y el dispositivo del activo reciben una alerta en milisegundos. Si el escaneo ocurre en un espacio público con presencia de civiles, el Activo 0404 no reaccionará de inmediato para no comprometer su anonimato, otorgando al transgresor una ventana de escape limitada según el tiempo de permanencia del activo en el lugar. En entornos aislados, la neutralización es instantánea.</p>
+        <p><strong>Despliegue de Apoyo y Cleaners:</strong> Si se involucra contra fuerzas especiales, la agencia desplegará escuadrones de asalto de élite como refuerzo para evitar que el activo se sienta traicionado. Tras el combate, nuestros equipos de limpieza (Cleaners) eliminarán toda evidencia y harán desaparecer los cuerpos.</p>
+
+        <h2>VII. DIRECTRICES DE SUPERVIVENCIA EXTRAORDINARIA</h2>
+        <ol>
+            <li><strong>El Botón de Seguridad:</strong> Active el interruptor para desplegar la puerta de acero reforzado. Cuenta con un temporizador límite estricto, aunque se advierte que el activo puede vulnerar el confinamiento fácilmente.</li>
+            <li><strong>Ruta de Extracción por Aeronave:</strong> El botón abrirá una compuerta con vehículos de vuelo equipados con suministros en el Sector Adyacente (probabilidad de llegar: 0%).</li>
+            <li><strong>Campamento de Contingencia:</strong> Si la aeronave cae, use el mini campamento portátil. No permanezca más de 24 horas; debe mantenerse despierto, en constante movimiento y sin dormir para evitar que el activo lo localice.</li>
+        </ol>
+
+        <h2>VIII. CAPACIDADES TÁCTICAS Y LETALIDAD</h2>
+        <ul>
+            <li><strong>Improvisación de Armamento:</strong> Capacidad para diseñar artefactos explosivos improvisados (bombas caseras) y armas untraceables usando elementos comunes.</li>
+            <li><strong>El Incidente de los 1,000:</strong> Se infiltró desarmado en un perímetro de 1,000 hostiles militares, confiscó su armamento y exterminó a la totalidad de la fuerza enemiga sin recibir impactos críticos.</li>
+        </ul>
+
+        <h2>IX. DIRECTIVA DE SEGURIDAD PARA INTRUSOS</h2>
+        <div class="blockquote-warning">
+            Al escanear este identificador QR, su ubicación exacta ha sido enviada al Activo 0404. No intente mentirle si lo tiene cerca. No intente huir de país; él puede localizarlo por sus propios medios en cuestión de horas o días. Mantenga sumisión psicológica absoluta.
+        </div>
+    </div>
+
+</body>
+</html>
