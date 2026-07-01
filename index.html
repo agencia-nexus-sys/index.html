@@ -1,12 +1,18 @@
 <audio id="sonido-agencia" src="alarma.mp3" preload="auto" loop></audio>
 
 <style>
-  /* Forzar que el fondo del documento sea negro absoluto */
+  /* Configuración del lienzo global absoluto */
+  * {
+    box-sizing: border-box;
+  }
+  
   html, body {
     background-color: #000000 !important;
     margin: 0;
     padding: 0;
     color: #b0b0b0;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
   }
 
   @keyframes parpadeoAlerta {
@@ -41,18 +47,17 @@
 
   .alerta-parpadeante { animation: parpadeoAlerta 1s infinite; }
   .revelacion-activo { animation: revelarImagen 2s ease-out forwards; animation-delay: 1s; }
-  .contenedor-introduccion { font-family: 'Courier New', Courier, monospace; background-color: #0a0a0a; color: #dcdcdc; overflow: hidden; transition: all 1.5s ease-in-out; }
+  .contenedor-introduccion { background-color: #0a0a0a; color: #dcdcdc; overflow: hidden; transition: all 1.5s ease-in-out; }
   .interfaz-reestructurada { animation: reestructurarInterfaz 1.5s ease-in-out forwards; }
   .bloqueo-critico { animation: destelloKeter 0.8s infinite; }
   .efecto-brecha-activa { animation: interferenciaBrecha 0.5s infinite; }
 </style>
 
-<!-- Contenedor Principal Oscuro para evitar filtraciones de fondo blanco -->
-<div id="interfaz-global" style="background-color: #000000; min-height: 100vh; transition: filter 0.3s; padding-bottom: 60px;">
+<div id="interfaz-global" style="background-color: #000000; min-height: 100vh; width: 100%; padding-bottom: 60px; float: left;">
 
   <div id="pantalla-introduccion" class="contenedor-introduccion" style="text-align: center; margin: 0 auto; padding: 25px; border: 1px solid #333333; max-width: 90%; box-shadow: inset 0 0 20px #000000;">
     <div>
-      <p class="alerta-parpadeante" style="color: #ff3333; font-weight: bold; font-size: 1.2em; margin: 0; letter-spacing: 2px;">
+      <p class="alerta-parpadeante" style="color: #ff3333; font-weight: bold; font-size: 1.1em; margin: 0; letter-spacing: 1px;">
         ⚠️ ADVERTENCIA: ACCESO RESTRINGIDO DE MÁXIMA PRIORIDAD ⚠️
       </p>
       <p style="font-size: 0.75em; color: #777777; margin: 5px 0 0 0; letter-spacing: 1px;">
@@ -71,7 +76,7 @@
     </p>
   </div>
 
-  <div id="informacion-general" style="font-family: 'Courier New', Courier, monospace; color: #b0b0b0; padding: 20px; max-width: 800px; margin: 0 auto; line-height: 1.6; background-color: #000000;">
+  <div id="informacion-general" style="color: #b0b0b0; padding: 20px; max-width: 800px; margin: 20px auto; line-height: 1.6; background-color: #000000; min-height: 300px;">
     <h3 style="color: #ffffff; border-bottom: 1px solid #333333; padding-bottom: 5px;">I. DATOS DE FILIACIÓN BÁSICA</h3>
     <p><strong>DESIGNACIÓN DE RED:</strong> Activo 0404</p>
     <p><strong>ESTADO OPERATIVO:</strong> En fuga / Alto riesgo.</p>
@@ -81,7 +86,10 @@
     <h3 style="color: #ffffff; border-bottom: 1px solid #333333; padding-bottom: 5px;">II. REGISTRO DE INCIDENTES</h3>
     <p>Múltiples registros enlazan al Activo con operaciones de asalto táctico y ejecuciones selectivas. Los informes forenses indican el uso recurrente de herramientas de alta precisión.</p>
     
-    <!-- CONTENEDOR DE LA INFORMACIÓN RESTRINGIDA -->
+    <p style="text-align: center; color: #555555; font-size: 0.9em; margin-top: 30px; border-top: 1px solid #222; padding-top: 15px;">
+      <i>(Desplace la pantalla hacia abajo para sincronizar telemetría táctica...)</i>
+    </p>
+    
     <div id="zona-restringida" style="display: none; border-top: 2px dashed #ff0000; margin-top: 40px; padding-top: 20px; transition: opacity 1s;">
       <h3 style="color: #ff3333; text-shadow: 0 0 5px #ff0000; border-bottom: 1px solid #ff0000; padding-bottom: 5px;">⚠️ [NEXUS NETWORK - ARCHIVO DE PERSONAL INTERNO] ⚠️</h3>
       <p style="font-size: 0.85em; color: #aa0000; margin-top: -5px; font-weight: bold; letter-spacing: 1px;">
@@ -105,7 +113,7 @@
       <p><strong>Identificación de Perímetro:</strong> Cualquier dron comercial o militar, vehículo sospechoso estacionado o en tránsito, o individuo con conducta de observación en el área de operaciones forma parte de la red de la agencia.</p>
       <p><strong>Agentes de Cobertura Profunda:</strong> Incluso si los drones aparentan ser de uso civil o las personas encargadas de operarlos visten como civiles comunes, están catalogados formalmente como agentes encubiertos de la agencia. Ningún miembro del personal debe interferir con estas unidades, ya que están destinadas a asegurar el perímetro y resguardar, en la medida de lo posible, el anonimato del Activo 0404.</p>
 
-      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">III. EVALUACIÓN DE CONDUCTA Y PERFIL PSICOLÓGICO</h4>
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">III. EVALUACIÓN DE CONDUCTA E PERFIL PSICOLÓGICO</h4>
       <p style="font-style: italic; color: #aaa; padding-left: 15px; border-left: 2px solid #ff3333; background-color: rgba(255,255,255,0.02);">Nota de la Dirección General: "El Activo 0404 presenta una estructura psicológica completamente plana: carece de emociones humanas registrables. Su naturaleza es puramente fría, directa y brutalmente honesta en sus evaluaciones. Sin embargo, posee una alarmante capacidad para fingir y simular emociones sociales (empatía, carisma, debilidad) con el fin de manipular su entorno o mimetizarse con los civiles. Es el activo más peligroso del que disponemos en términos de manipulación cognitiva. Es capaz de reescribir la percepción de la realidad de cualquier objetivo mediante el engaño y el control mental. Desarrolló una capacidad infalible para la detección inmediata de mentiras. Regla de oro para el personal: Todo lo que el 0404 les diga es una mentira táctica. Si un civil o un activo de menor rango descubre un fragmento real de su vida, el 0404 jugará con su cabeza hasta quebrarlo; si el control psicológico falla, tiene autorización interna para proceder a la eliminación física inmediata."</p>
 
       <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">IV. FACTOR DE AMENAZA INTERNA (DIRECTIVA DE NO ENTROMETIMIENTO)</h4>
@@ -147,15 +155,15 @@
       <p><strong>Misión Asignada:</strong> [FASE DE INFILTRACIÓN]. El Activo 0404 se encuentra desplegado en el sector civil bajo una misión global de alta prioridad dictada por el Consejo. Aunque realiza una rutina ordinaria, el golpe principal aún no ha sido ejecutado. Está a la espera de la señal de activación final.</p>
 
       <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">X. DIRECTIVA DE SEGURIDAD PARA INTRUSOS Y PERSONAL ADYACENTE</h4>
-      <p style="border: 1px dashed #ff1a1a; padding: 15px; background-color: rgba(0,0,0,0.75);"><strong>ADVERTENCIA CRÍTICA (PARA CIVILES, AGENTES O FUERZAS GUBERNAMENTALES):</strong><br>
-      Al escanear este identificador QR, el dispositivo táctico del Activo 0404 ha recibido una notification de proximidad con su ubicación exacta. Ha husmeado en los archivos privados del activo más peligroso del mundo.<br><br>
+      <p style="border: 1px dashed #ff1a1a; padding: 15px; background-color: rgba(0,0,0,0.85); color: #fff;"><strong>ADVERTENCIA CRÍTICA (PARA CIVILES, AGENTES O FUERZAS GUBERNAMENTALES):</strong><br>
+      Al escanear este identificador QR, el dispositivo táctico del Activo 0404 ha recibido una notificación de proximidad con su ubicación exacta. Ha husmeado en los archivos privados del activo más peligroso del mundo.<br><br>
       No intente mentirle si lo tiene cerca; lo detectará al instante. Si usted pertenece a la agencia o a las fuerzas del orden, rinda respeto absoluto y siga el protocolo de supervivencia extrema. Si es un civil, no intente huir o mudarse de país; el 0404 no necesita los satélites de la agencia para encontrarlo, puede localizarlo y cercarlo por sus propios medios en cuestión de horas o días. Actúe con normalidad, mantenga una sumisión psicológica absoluta y rece para no estar en su lista de objetivos activos.</p>
     </div>
   </div>
 
 </div>
 
-<div id="alerta-perimetro" class="bloqueo-critico" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; padding: 30px; border: 2px solid #ff0000; font-family: 'Courier New', Courier, monospace; text-align: center; z-index: 10000; box-shadow: 0 0 50px #000000; transition: opacity 1s;">
+<div id="alerta-perimetro" class="bloqueo-critico" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; padding: 30px; border: 2px solid #ff0000; background-color: #050000; text-align: center; z-index: 10000; box-shadow: 0 0 50px #000000; transition: opacity 0.5s;">
   <p style="color: #ff3333; font-weight: bold; font-size: 1.3em; margin: 0 0 15px 0; letter-spacing: 1px;">
     🛑 VIOLACIÓN DE PERÍMETRO INFORMATIVO 🛑
   </p>
@@ -168,6 +176,7 @@
 </div>
 
 <script>
+  // Manejo del Reproductor de Audio
   window.addEventListener('load', () => {
     var audio = document.getElementById('sonido-agencia');
     audio.play().catch(function(error) {
@@ -180,6 +189,7 @@
     });
   });
 
+  // Animación Inicial del Encabezado
   window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       var intro = document.getElementById('pantalla-introduccion');
@@ -195,31 +205,35 @@
     }, 5500);
   });
 
+  // Lógica del Evento de Desplazamiento (Scroll)
   let alertaDisparada = false;
   let brechaAbierta = false;
 
   window.addEventListener('scroll', function() {
-    if (window.scrollY > 30 && !alertaDisparada && !brechaAbierta) {
+    // Al bajar un poco la pantalla se activa la simulación táctica
+    if (window.scrollY > 20 && !alertaDisparada && !brechaAbierta) {
       alertaDisparada = true;
       
-      document.getElementById('alerta-perimetro').style.display = 'block';
+      var panel = document.getElementById('alerta-perimetro');
+      panel.style.display = 'block';
       document.body.style.overflow = 'hidden'; 
 
       var audio = document.getElementById('sonido-agencia');
       audio.loop = true;
       audio.play().catch(function(e){});
 
+      // El panel dura 4 segundos y luego revela los archivos encriptados
       setTimeout(() => {
         brechaAbierta = true;
-        document.getElementById('alerta-perimetro').style.opacity = '0';
+        panel.style.opacity = '0';
         
         setTimeout(() => {
-          document.getElementById('alerta-perimetro').style.display = 'none';
+          panel.style.display = 'none';
           document.body.style.overflow = 'auto'; 
           
           document.getElementById('zona-restringida').style.display = 'block';
           document.getElementById('interfaz-global').classList.add('efecto-brecha-activa');
-        }, 1000); 
+        }, 500); 
 
       }, 4000); 
     }
