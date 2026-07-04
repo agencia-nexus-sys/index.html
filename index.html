@@ -101,7 +101,7 @@
       <p style="background-color: rgba(255, 26, 26, 0.1); border-left: 4px solid #ff1a1a; padding: 10px; color: #ff9999;"><strong>AVISO DE CONTROL DE RIESGO DE ALTO NIVEL:</strong> Este expediente es de lectura obligatoria para todo el personal operativo en campo. El Activo 0404 es incontrolable y representa un peligro de muerte inmediato tanto para objetivos externos como para cualquier miembro de esta organización.</p>
 
       <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">I. ESPECIFICACIONES DE REGISTRO E IDENTIFICACIÓN</h4>
-      <p><strong>Identificación Nominal:</strong> NINGUNA. El activo carece de nombre legal o identidad civil rastreable. Ni la propia agencia posee información real sobre su identidad de nacimiento. Todos sus datos de origen han sido borrados o son completamente inaccesibles para nuestros sistemas. Es identificado exclusivamente como Activo 0404.</p>
+      <p><strong>Identificación Nominal:</strong> NINGUNA. El activo carece de nombre legal o identity civil rastreable. Ni la propia agencia posee información real sobre su identidad de nacimiento. Todos sus datos de origen han sido borrados o son completamente inaccesibles para nuestros sistemas. Es identificado exclusivamente como Activo 0404.</p>
       <p><strong>Protocolo de Reconocimiento QR (Para Personal de la Agencia):</strong> El activo porta un grabado subcutáneo enlazado a este código QR. Directiva para Agentes en el Campo: Si se encuentra en una misión y sospecha de la presencia del 0404, utilice su escáner táctico discretamente. Este código funciona como su credencial biométrica de reconocimiento mutuo. Si el sistema arroja esta ficha, aborte cualquier intento de interactuar, confirme su identidad visual y retírese de inmediato. El escaneo es puramente para confirmar su presencia y evitar fuego cruzado.</p>
       <p><strong>Origen y Adiestramiento:</strong> Ingresado a las instalaciones subterráneas de la organización a la edad de 6 años. Su historial de entrenamiento físico, balístico y de combate cuerpo a cuerpo permanece clasificado como "Inexistente" debido a que sus capacidades actuales han sobrepasado cualquier doctrina de enseñanza de la agencia.</p>
       <p><strong>Mimetización y Cobertura Social (Uso de Civiles):</strong> El activo simula una rutina ordinaria y actividades cotidianas con total naturalidad para pasar desapercibido. Frecuenta entornos públicos y realiza salidas con individuos civiles. Advertencia de Inteligencia: El activo no posee vínculos afectivos; no considera a estas personas como sus amigos, sino estrictamente como herramientas logísticas, distractores o escudos tácticos dentro de su perímetro operativo. Si un agente de la organización lo avista en estas condiciones, debe extremar las precauciones y abstenerse de intervenir; cualquier alteración de su cobertura social provocará una respuesta letal.</p>
@@ -134,7 +134,7 @@
       <p><strong>Notificación a la Central y Alerta al Activo:</strong> Las terminales principales de la agencia recibirán una alerta de prioridad roja indicando las coordenadas exactas de la brecha. En un lapso de milisegundos, la telemetría notificará al dispositivo del Activo 0404.</p>
       <p><strong>La Restricción por Civiles (Ventana Temporal de Escape):</strong> Si un miembro del personal de la agencia o fuerzas de seguridad escanea el código QR en un espacio público con presencia de civiles, el Activo 0404 no reaccionará de manera inmediata ni violenta. Con el fin de no comprometer su anonimato ni generar alarmas masivas innecesarias, el activo pospondrá la ejecución física mientras haya testigos civiles expuestos.</p>
       <p><strong>Protocolo para el Transgresor:</strong> Esto le otorga al sujeto que escaneó el código una ventana de escape de emergencia altamente limitada. El tiempo disponible antes de la represalia dependerá estrictamente del tiempo que el activo tenga programado permanecer en dicha locación. Una vez que el activo se desplace o el entorno civil se despeje, se iniciará la caza inmediata.</p>
-      <p><strong>Reacción Inmediata Fuera de Áreas Civiles:</strong> Si el escaneo ocurre en un lugar privado, aislado o sin testigos civiles, el activo reaccionará en milisegundos para eliminar de forma directa al interceptor.</p>
+      <p><strong>Reacción Inmediata Fuera de Áreas Civiles:</strong> Si el escaneo occurs en un lugar privado, aislado o sin testigos civiles, el activo reaccionará en milisegundos para eliminar de forma directa al interceptor.</p>
       <p><strong>Despliegue de Apoyo y Fuerza de Limpieza (Cleaners):</strong><br>
       • <strong>Despliegue de Refuerzos:</strong> Si el Activo 0404 se ve envuelto en un combate a gran escala contra fuerzas especiales o policía militar, 'El Nexo de la Agonía' tiene la obligación operativa de desplegar inmediatamente a sus escuadrones de asalto y a sus mejores asesinos de élite como refuerzos. Aunque el 0404 no requiere asistencia para ganar el combate, la agencia ejecuta este protocolo para evitar cualquier percepción de abandono o traición y, primordialmente, para mitigar el riesgo de que el activo se vuelva contra el Sindicato.<br>
       • <strong>Sanitización Forense:</strong> Tras la conclusión del enfrentamiento, los equipos de limpieza avanzada de la organización intervendrán de inmediato en la zona para eliminar toda evidencia balística, borrar los registros digitales del entorno y hacer desaparecer la totalidad de los cuerpos neutralizados por el activo, garantizando la continuidad del secreto operacional.</p>
@@ -176,46 +176,52 @@
 </div>
 
 <script>
-  // Variables globales de control táctico
+  // Variables de control estratégico
   let alertaDisparada = false;
   let brechaAbierta = false;
-  let vozInicializada = false;
-  let mensajeVoz = null;
+  let canalDeVozAutorizado = false;
 
-  // Instanciar y preparar el motor de síntesis de voz silenciosamente al primer contacto del usuario
-  function prepararVoz() {
-    if (vozInicializada) return;
-    
-    // Extraer solo la información confidencial de la sección restringida
-    const textoParaLeer = document.getElementById('zona-restringida').innerText;
-    mensajeVoz = new SpeechSynthesisUtterance(textoParaLeer);
-    
-    // Parámetros formales de locución (Tono grave y pausado)
-    mensajeVoz.lang = 'es-AR'; 
-    mensajeVoz.rate = 0.88;    
-    mensajeVoz.pitch = 0.75;   
+  // Función crítica para forzar la reproducción de voz burlando las restricciones del navegador
+  function ejecutarTransmisionVoz() {
+    // Forzar la detención de cualquier residuo previo en la cola de audio
+    window.speechSynthesis.cancel();
 
-    // Al ejecutar speak con volumen 0, el navegador concede la autorización de reproducción automática para más tarde
-    mensajeVoz.volume = 0;
-    window.speechSynthesis.speak(mensajeVoz);
-    window.speechSynthesis.cancel(); // Limpiar cola inmediatamente
+    // Extraer rigurosamente el texto confidencial del nodo oculto
+    const informeTexto = document.getElementById('zona-restringida').innerText;
+    const mensajeUtterance = new SpeechSynthesisUtterance(informeTexto);
     
-    // Restaurar volumen total para cuando se rompa el cortafuegos
-    mensajeVoz.volume = 1;
-    vozInicializada = true;
+    // Parámetros de voz institucional
+    mensajeUtterance.lang = 'es-AR'; // Modulación regional
+    mensajeUtterance.rate = 0.88;    // Cadencia pausada para análisis
+    mensajeUtterance.pitch = 0.75;   // Tono grave militar
+    mensajeUtterance.volume = 1.0;   // Máxima amplitud
+
+    // Orden directa al sistema operativo para procesar el sintetizador
+    window.speechSynthesis.speak(mensajeUtterance);
   }
 
-  // Activar transmisiones al interactuar con el dispositivo
+  // Interceptar la primera interacción del usuario para desbloquear simultáneamente Alarma y Voz
   window.addEventListener('load', () => {
     var audio = document.getElementById('sonido-agencia');
     
-    const interactuarYActivar = () => {
-      prepararVoz(); // Autoriza el canal de voz en segundo plano
+    const activarSistemas = () => {
+      if (canalDeVozAutorizado) return;
+      canalDeVozAutorizado = true;
+      
+      // Reproducir alarma
       audio.play().catch(function(e){});
+
+      // El navegador AHORA aprueba speechSynthesis porque este evento proviene de un toque físico del usuario
+      // Creamos un retraso controlado de 4.5 segundos para que empiece a hablar justo cuando se rompe el cortafuegos
+      setTimeout(() => {
+        if (brechaAbierta) {
+          ejecutarTransmisionVoz();
+        }
+      }, 4500);
     };
 
-    document.addEventListener('click', interactuarYActivar, { once: true });
-    document.addEventListener('touchstart', interactuarYActivar, { once: true });
+    document.addEventListener('click', activarSistemas, { once: true });
+    document.addEventListener('touchstart', activarSistemas, { once: true });
   });
 
   // Animación Inicial del Encabezado
@@ -234,7 +240,7 @@
     }, 5500);
   });
 
-  // Lógica del Evento de Desplazamiento (Scroll) y Lectura Coordinada
+  // Lógica del Evento de Desplazamiento (Scroll)
   window.addEventListener('scroll', function() {
     if (window.scrollY > 20 && !alertaDisparada && !brechaAbierta) {
       alertaDisparada = true;
@@ -247,7 +253,7 @@
       audio.loop = true;
       audio.play().catch(function(e){});
 
-      // El panel dura 4 segundos; luego desbloquea el archivo e inicia la transmisión de voz
+      // El panel dura 4 segundos y luego revela los archivos encriptados
       setTimeout(() => {
         brechaAbierta = true;
         panel.style.opacity = '0';
@@ -259,9 +265,9 @@
           document.getElementById('zona-restringida').style.display = 'block';
           document.getElementById('interfaz-global').classList.add('efecto-brecha-activa');
           
-          // Ejecutar la transmisión de voz autorizada de forma limpia
-          if (vozInicializada && mensajeVoz) {
-            window.speechSynthesis.speak(mensajeVoz);
+          // Si el scroll ocurre posterior al primer toque, ejecutamos la transmisión inmediatamente
+          if (canalDeVozAutorizado) {
+            ejecutarTransmisionVoz();
           }
         }, 500); 
 
