@@ -1,63 +1,57 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS NETWORK</title>
-  <style>
-    /* Configuración del lienzo global absoluto */
-    * {
-      box-sizing: border-box;
-    }
-    
-    html, body {
-      background-color: #000000 !important;
-      margin: 0;
-      padding: 0;
-      color: #b0b0b0;
-      font-family: 'Courier New', Courier, monospace;
-      min-height: 100vh;
-    }
+<audio id="sonido-agencia" src="alarma.mp3" preload="auto" loop></audio>
 
-    @keyframes parpadeoAlerta {
-      0%, 100% { opacity: 1; text-shadow: 0 0 10px #ff0000; }
-      50% { opacity: 0.3; text-shadow: none; }
-    }
+<style>
+  /* Configuración del lienzo global absoluto */
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    background-color: #000000 !important;
+    margin: 0;
+    padding: 0;
+    color: #b0b0b0;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+  }
 
-    @keyframes revelarImagen {
-      0% { opacity: 0; transform: scale(0.9); filter: grayscale(100%) brightness(0); }
-      100% { opacity: 1; transform: scale(1); filter: grayscale(100%) brightness(0.8); }
-    }
+  @keyframes parpadeoAlerta {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px #ff0000; }
+    50% { opacity: 0.3; text-shadow: none; }
+  }
 
-    @keyframes reestructurarInterfaz {
-      0% { max-width: 90%; margin: 40px auto; padding: 25px; background-color: #0a0a0a; border: 1px solid #333333; }
-      100% { max-width: 100%; margin: 0 0 20px 0; padding: 15px; background-color: #050505; border-bottom: 2px solid #aa0000; border-top: none; border-left: none; border-right: none; }
-    }
+  @keyframes revelarImagen {
+    0% { opacity: 0; transform: scale(0.9); filter: grayscale(100%) brightness(0); }
+    100% { opacity: 1; transform: scale(1); filter: grayscale(100%) brightness(0.8); }
+  }
 
-    @keyframes destelloKeter {
-      0%, 100% { background-color: rgba(10, 0, 0, 0.95); border-color: #333333; }
-      50% { background-color: rgba(45, 0, 0, 1); border-color: #ff0000; box-shadow: 0 0 30px #ff0000; }
-    }
+  @keyframes reestructurarInterfaz {
+    0% { max-width: 90%; margin: 40px auto; padding: 25px; background-color: #0a0a0a; border: 1px solid #333333; }
+    100% { max-width: 100%; margin: 0 0 20px 0; padding: 15px; background-color: #050505; border-bottom: 2px solid #aa0000; border-top: none; border-left: none; border-right: none; }
+  }
 
-    @keyframes interferenciaBrecha {
-      0% { opacity: 0.98; filter: hue-rotate(0deg) contrast(1); }
-      10% { opacity: 0.95; filter: hue-rotate(5deg) contrast(1.1) skewX(0.5deg); }
-      12% { filter: none; }
-      40% { opacity: 0.99; filter: contrast(1.05) saturate(1.2); }
-      42% { opacity: 0.93; filter: hue-rotate(-10deg) skewX(-1deg); }
-      43% { filter: none; }
-      100% { opacity: 0.98; filter: hue-rotate(0deg); }
-    }
+  @keyframes destelloKeter {
+    0%, 100% { background-color: rgba(10, 0, 0, 0.95); border-color: #333333; }
+    50% { background-color: rgba(45, 0, 0, 1); border-color: #ff0000; box-shadow: 0 0 30px #ff0000; }
+  }
 
-    .alerta-parpadeante { animation: parpadeoAlerta 1s infinite; }
-    .revelacion-activo { animation: revelarImagen 2s ease-out forwards; animation-delay: 1s; }
-    .contenedor-introduccion { background-color: #0a0a0a; color: #dcdcdc; overflow: hidden; transition: all 1.5s ease-in-out; }
-    .interfaz-reestructurada { animation: reestructurarInterfaz 1.5s ease-in-out forwards; }
-    .bloqueo-critico { animation: destelloKeter 0.8s infinite; }
-    .efecto-brecha-activa { animation: interferenciaBrecha 0.5s infinite; }
-  </style>
-</head>
-<body>
+  @keyframes interferenciaBrecha {
+    0% { opacity: 0.98; filter: hue-rotate(0deg) contrast(1); }
+    10% { opacity: 0.95; filter: hue-rotate(5deg) contrast(1.1) skewX(0.5deg); }
+    12% { filter: none; }
+    40% { opacity: 0.99; filter: contrast(1.05) saturate(1.2); }
+    42% { opacity: 0.93; filter: hue-rotate(-10deg) skewX(-1deg); }
+    43% { filter: none; }
+    100% { opacity: 0.98; filter: hue-rotate(0deg); }
+  }
+
+  .alerta-parpadeante { animation: parpadeoAlerta 1s infinite; }
+  .revelacion-activo { animation: revelarImagen 2s ease-out forwards; animation-delay: 1s; }
+  .contenedor-introduccion { background-color: #0a0a0a; color: #dcdcdc; overflow: hidden; transition: all 1.5s ease-in-out; }
+  .interfaz-reestructurada { animation: reestructurarInterfaz 1.5s ease-in-out forwards; }
+  .bloqueo-critico { animation: destelloKeter 0.8s infinite; }
+  .efecto-brecha-activa { animation: interferenciaBrecha 0.5s infinite; }
+</style>
 
 <div id="interfaz-global" style="background-color: #000000; min-height: 100vh; width: 100%; padding-bottom: 60px; float: left;">
 
@@ -98,4 +92,150 @@
     
     <div id="zona-restringida" style="display: none; border-top: 2px dashed #ff0000; margin-top: 40px; padding-top: 20px; transition: opacity 1s;">
       <h3 style="color: #ff3333; text-shadow: 0 0 5px #ff0000; border-bottom: 1px solid #ff0000; padding-bottom: 5px;">⚠️ [NEXUS NETWORK - ARCHIVO DE PERSONAL INTERNO] ⚠️</h3>
-      <p style="font-size: 0.85em; color: #aa0000; margin-top: -5px; font-weight: bold; letter-spacing
+      <p style="font-size: 0.85em; color: #aa0000; margin-top: -5px; font-weight: bold; letter-spacing: 1px;">
+        REGISTRO CENTRAL DE ACTIVOS // SINDICATO INTERNACIONAL "EL NEXO DE LA AGONÍA"<br>
+        ESTADO DEL SENSOR: CONEXIÓN INTERNA ENCRIPTADA (NIVEL OMEGA)<br>
+        DESIGNACIÓN DEL ACTIVO: OBJETO 0404
+      </p>
+      
+      <p style="background-color: rgba(255, 26, 26, 0.1); border-left: 4px solid #ff1a1a; padding: 10px; color: #ff9999;"><strong>AVISO DE CONTROL DE RIESGO DE ALTO NIVEL:</strong> Este expediente es de lectura obligatoria para todo el personal operativo en campo. El Activo 0404 es incontrolable y representa un peligro de muerte inmediato tanto para objetivos externos como para cualquier miembro de esta organización.</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">I. ESPECIFICACIONES DE REGISTRO E IDENTIFICACIÓN</h4>
+      <p><strong>Identificación Nominal:</strong> NINGUNA. El activo carece de nombre legal o identidad civil rastreable. Ni la propia agencia posee información real sobre su identidad de nacimiento. Todos sus datos de origen han sido borrados o son completamente inaccesibles para nuestros sistemas. Es identificado exclusivamente como Activo 0404.</p>
+      <p><strong>Protocolo de Reconocimiento QR (Para Personal de la Agencia):</strong> El activo porta un grabado subcutáneo enlazado a este código QR. Directiva para Agentes en el Campo: Si se encuentra en una misión y sospecha de la presencia del 0404, utilice su escáner táctico discretamente. Este código funciona como su credencial biométrica de reconocimiento mutuo. Si el sistema arroja esta ficha, aborte cualquier intento de interactuar, confirme su identidad visual y retírese de inmediato. El escaneo es puramente para confirmar su presencia y evitar fuego cruzado.</p>
+      <p><strong>Origen y Adiestramiento:</strong> Ingresado a las instalaciones subterráneas de la organización a la edad de 6 años. Su historial de entrenamiento físico, balístico y de combate cuerpo a cuerpo permanece clasificado como "Inexistente" debido a que sus capacidades actuales han sobrepasado cualquier doctrina de enseñanza de la agencia.</p>
+      <p><strong>Mimetización y Cobertura Social (Uso de Civiles):</strong> El activo simula una rutina ordinaria y actividades cotidianas con total naturalidad para pasar desapercibido. Frecuenta entornos públicos y realiza salidas con individuos civiles. Advertencia de Inteligencia: El activo no posee vínculos afectivos; no considera a estas personas como sus amigos, sino estrictamente como herramientas logísticas, distractores o escudos tácticos dentro de su perímetro operativo. Si un agente de la organización lo avista en estas condiciones, debe extremar las precauciones y abstenerse de intervenir; cualquier alteración de su cobertura social provocará una respuesta letal.</p>
+      <p><strong>Protocolo de Indumentaria:</strong> Se le exige mantener la epidermis (piel) cubierta en su totalidad durante sus despliegues civiles. Esto evita la exposición accidental del marcador QR de la organización, cicatrices de balística o modificaciones dérmicas que comprometerían el secreto del Nexo.</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">II. INFRAESTRUCTURA DE SOPORTE PERIMETRAL Y VIGILANCIA OCULTA</h4>
+      <p><strong>DIRECTIVA LOGÍSTICA DE RECONOCIMIENTO URBANO:</strong> Red de asistencia pasiva.</p>
+      <p><strong>Despliegue Oculto de la Agencia:</strong> Con el fin de monitorear el entorno del activo y ofrecer un soporte táctico automatizado, 'El Nexo de la Agonía' mantiene un despliegue constante de activos de reconocimiento.</p>
+      <p><strong>Identificación de Perímetro:</strong> Cualquier dron comercial o militar, vehículo sospechoso estacionado o en tránsito, o individuo con conducta de observación en el área de operaciones forma parte de la red de la agencia.</p>
+      <p><strong>Agentes de Cobertura Profunda:</strong> Incluso si los drones aparentan ser de uso civil o las personas encargadas de operarlos visten como civiles comunes, están catalogados formalmente como agentes encubiertos de la agencia. Ningún miembro del personal debe interferir con estas unidades, ya que están destinadas a asegurar el perímetro y resguardar, en la medida de lo posible, el anonimato del Activo 0404.</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">III. EVALUACIÓN DE CONDUCTA E PERFIL PSICOLÓGICO</h4>
+      <p style="font-style: italic; color: #aaa; padding-left: 15px; border-left: 2px solid #ff3333; background-color: rgba(255,255,255,0.02);">Nota de la Dirección General: "El Activo 0404 presenta una estructura psicológica completamente plana: carece de emociones humanas registrables. Su naturaleza es puramente fría, directa y brutalmente honesta en sus evaluaciones. Sin embargo, posee una alarmante capacidad para fingir y simular emociones sociales (empatía, carisma, debilidad) con el fin de manipular su entorno o mimetizarse con los civiles. Es el activo más peligroso del que disponemos en términos de manipulación cognitiva. Es capaz de reescribir la percepción de la realidad de cualquier objetivo mediante el engaño y el control mental. Desarrolló una capacidad infalible para la detección inmediata de mentiras. Regla de oro para el personal: Todo lo que el 0404 les diga es una mentira táctica. Si un civil o un activo de menor rango descubre un fragmento real de su vida, el 0404 jugará con su cabeza hasta quebrarlo; si el control psicológico falla, tiene autorización interna para proceder a la eliminación física inmediata."</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">IV. FACTOR DE AMENAZA INTERNA (DIRECTIVA DE NO ENTROMETIMIENTO)</h4>
+      <p><strong>Tolerancia Cero a la Curiosidad:</strong> DIRECTIVA CRÍTICA 04. Queda terminantemente prohibido para cualquier analista, operativo o alto mando de la agencia intentar indagar, investigar o entrometerse en la vida privada, pasada o presente del Activo 0404. Cualquier miembro del personal que intente violar este perímetro de privacidad será ejecutado de inmediato por el propio activo.</p>
+      <p><strong>Política de No Intervención del Nexo:</strong> Ante una ejecución por entrometimiento, la agencia no intervendrá, no tomará represalias ni intentará defender a su personal. Se ha determinado que el Sindicato no puede permitirse el riesgo de perder toda su estructura, bases e influencia global por proteger a un elemento imprudente. La supervivencia de la organización es prioritaria; si usted decide indagar en la vida del 0404, la agencia lo declarará activo desechable para evitar ser destruida por completo.</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">V. INTRUSIÓN DE FUERZAS DE LA LEY (ALERTA FILTRADA A CUERPOS POLICIALES Y MILITARES)</h4>
+      <p><strong>NOTA DE INTERCEPTACIÓN TÁCTICA:</strong> El siguiente apartado ha sido anexado tras detectar intentos de intercepción por parte de fuerzas policiales, gendarmería y policía militar del Estado. Si usted pertenece a una fuerza de seguridad gubernamental y está leyendo este archivo, su protocolo estándar de detención ha quedado completamente anulado.</p>
+      <p><strong>Evaluación de Riesgo de Ley:</strong> El Activo 0404 está clasificado como una amenaza de Seguridad Nacional e Internacional de Nivel 5. No es un delincuente convencional; es un ejecutor quirúrgico. Las tácticas policiales estándar de disuasión, negociación o asalto en grupo no tienen efecto ante él.</p>
+      <p><strong>Guía Desesperada de Supervivencia Policial/Militar:</strong><br>
+      • <strong>Cancelación de Arresto:</strong> No intente realizar un procedimiento de detención o esposamiento. Si detecta al activo en un control rutinario, no muestre sospechas ni exija la exposición de su piel. Darle una orden de arresto activará su protocolo automático de eliminación del perímetro.<br>
+      • <strong>No Enfrentamiento:</strong> Si se produce un tiroteo, la policía militar debe replegarse inmediatamente. La confrontación directa resultará en bajas masivas en cuestión de segundos debido a su alta destreza en contrabalística táctica.<br>
+      • <strong>Prioridad de Evacuación:</strong> La única directriz viable para el mando policial es acordonar la zona periférica para evacuar a los civiles y evitar que el activo los sume a su inventario de herramientas de escape. Intentar cercarlo solo acelerará el deceso de las unidades involucradas.</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">VI. PROTOCOLO DE ALERTA DE TELEMETRÍA Y VENTANA DE ESCAPE EN ENTORNOS PÚBLICOS</h4>
+      <p><strong>DIRECTIVA SENSORI-LOGÍSTICA OMEGA-QR:</strong> Especificaciones de rastreo y contingencia en presencia de civiles.</p>
+      <p><strong>Intercepción del Escaneo:</strong> En el instante preciso en que cualquier agente de policía, efectivo de fuerzas especiales, policía militar o miembro externo de la agencia realice un escaneo sobre el marcador QR del activo, se desencadenará una interrupción de seguridad automatizada.</p>
+      <p><strong>Notificación a la Central y Alerta al Activo:</strong> Las terminales principales de la agencia recibirán una alerta de prioridad roja indicando las coordenadas exactas de la brecha. En un lapso de milisegundos, la telemetría notificará al dispositivo del Activo 0404.</p>
+      <p><strong>La Restricción por Civiles (Ventana Temporal de Escape):</strong> Si un miembro del personal de la agencia o fuerzas de seguridad escanea el código QR en un espacio público con presencia de civiles, el Activo 0404 no reaccionará de manera inmediata ni violenta. Con el fin de no comprometer su anonimato ni generar alarmas masivas innecesarias, el activo pospondrá la ejecución física mientras haya testigos civiles expuestos.</p>
+      <p><strong>Protocolo para el Transgresor:</strong> Esto le otorga al sujeto que escaneó el código una ventana de escape de emergencia altamente limitada. El tiempo disponible antes de la represalia dependerá estrictamente del tiempo que el activo tenga programado permanecer en dicha locación. Una vez que el activo se desplace o el entorno civil se despeje, se iniciará la caza inmediata.</p>
+      <p><strong>Reacción Inmediata Fuera de Áreas Civiles:</strong> Si el escaneo ocurre en un lugar privado, aislado o sin testigos civiles, el activo reaccionará en milisegundos para eliminar de forma directa al interceptor.</p>
+      <p><strong>Despliegue de Apoyo y Fuerza de Limpieza (Cleaners):</strong><br>
+      • <strong>Despliegue de Refuerzos:</strong> Si el Activo 0404 se ve envuelto en un combate a gran escala contra fuerzas especiales o policía militar, 'El Nexo de la Agonía' tiene la obligación operativa de desplegar inmediatamente a sus escuadrones de asalto y a sus mejores asesinos de élite como refuerzos. Aunque el 0404 no requiere asistencia para ganar el combate, la agencia ejecuta este protocolo para evitar cualquier percepción de abandono o traición y, primordialmente, para mitigar el riesgo de que el activo se vuelva contra el Sindicato.<br>
+      • <strong>Sanitización Forense:</strong> Tras la conclusión del enfrentamiento, los equipos de limpieza avanzada de la organización intervendrán de inmediato en la zona para eliminar toda evidencia balística, borrar los registros digitales del entorno y hacer desaparecer la totalidad de los cuerpos neutralizados por el activo, garantizando la continuidad del secreto operacional.</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">VII. DIRECTRICES DE SUPERVIVENCIA EXTRAORDINARIA (PROTOCOLO DE REACCIÓN HOSTIL INTERNA)</h4>
+      <p><strong>ATENCIÓN OPERATIVOS DE LA AGENCIA:</strong> Si un miembro de la organización comete un error táctico, interfiere con el 0404 o provoca una respuesta hostil que lo obligue a iniciar un protocolo de eliminación en su contra, las posibilidades de supervivencia son del 0%. No obstante, se establece el siguiente sistema de contingencia física en las celdas de campo:</p>
+      <p>• <strong>El Botón de Seguridad de Emergencia:</strong> Si es detectado por el 0404 y requiere comprar valiosos segundos, minutos u horas para su vida, presione inmediatamente el interruptor de seguridad de la celda. Esto activará el despliegue automático de una puerta de acero reforzado de alta densidad.</p>
+      <p>• <strong>La Restricción del Temporizador:</strong> Por orden expresa del Consejo, este blindaje no permanece activo de forma permanente ni perpetua. Posee un temporizador límite estricto para evitar que el activo interprete el bloqueo como una intromisión directa de la agencia en sus funciones. Se advierte explícitamente al operario que, independientemente de la densidad del acero y la activación del temporizador, el Activo 0404 posee la capacidad de vulnerar, sabotear o escapar del confinamiento fácilmente sin importar los obstáculos físicos empleados.</p>
+      <p>• <strong>Ruta de Extracción por Aeronave:</strong> La pulsación del botón de seguridad desbloqueará simultáneamente una compuerta hidráulica gigante en el Sector Adyacente, dejando expuestos los vehículos de vuelo de evacuación rápida de la agencia. Las probabilidades estadísticas de que un operario bajo caza logre recorrer la distancia hasta dicho sector son del 0%. En caso de un milagro táctico o fortuna extrema y logre abordar, el vehículo está completamente equipado con suministros de supervivencia listos para un despegue inmediato que le permita ganar media o larga distancia respecto al perímetro de caza.</p>
+      <p>• <strong>Fallo de Aeronave y Campamento de Contingencia:</strong> Si el Activo 0404 intercepta el despegue, daña los sistemas críticos del vehículo en el aire o provoca su derribo forzoso, el equipo de evacuación incluye un mini campamento de supervivencia portátil.<br>
+      <strong>Advertencia Crítica:</strong> El operario no debe permanecer más de 24 horas en dicho campamento bajo ninguna circunstancia. El Activo 0404 calculará la trayectoria del impacto y llegará a su posición para ejecutar la neutralización. Su único protocolo teórico es iniciar un desplazamiento inmediato hacia otro país o un refugio temporal de alta densidad. El activo puede localizarlo con facilidad, por lo que el objetivo deberá mantenerse completamente despierto, en constante movimiento y en privación absoluta de sueño si desea prolongar su supervivencia un periodo de tiempo limitado.</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">VIII. CAPACIDADES TÁCTICAS Y REGISTRO DE LETALIDAD</h4>
+      <p><strong>Capacidad de Improvisación:</strong> Experto maestro en balística, armas blancas y modificaciones tácticas. El activo tiene la capacidad de diseñar y armar artefactos explosivos improvisados (bombas caseras) y armas de fuego funcionales utilizando elementos comunes de cualquier entorno. Cualquier objeto que entre en su campo de visión es catalogado automáticamente como un arma letal.</p>
+      <p><strong>Logística de Suministros:</strong> El activo adquiere armamento de forma constante por canales alternos del Nexo. Mantiene un sistema descentralizado de escondites (navajas de precisión, pistolas compactas y herramientas de sabotaje) distribuidos en su radio de movimiento diario.</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">IX. ESTATUS DE CONTRATO ACTUAL</h4>
+      <p><strong>Misión Asignada:</strong> [FASE DE INFILTRACIÓN]. El Activo 0404 se encuentra desplegado en el sector civil bajo una misión global de alta prioridad dictada por el Consejo. Aunque realiza una rutina ordinaria, el golpe principal aún no ha sido ejecutado. Está a la espera de la señal de activación final.</p>
+
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">X. DIRECTIVA DE SEGURIDAD PARA INTRUSOS Y PERSONAL ADYACENTE</h4>
+      <p style="border: 1px dashed #ff1a1a; padding: 15px; background-color: rgba(0,0,0,0.85); color: #fff;"><strong>ADVERTENCIA CRÍTICA (PARA CIVILES, AGENTES O FUERZAS GUBERNAMENTALES):</strong><br>
+      Al escanear este identificador QR, el dispositivo táctico del Activo 0404 ha recibido una notificación de proximidad con su ubicación exacta. Ha husmeado en los archivos privados del activo más peligroso del mundo.<br><br>
+      No intente mentirle si lo tiene cerca; lo detectará al instante. Si usted pertenece a la agencia o a las fuerzas del orden, rinda respeto absoluto y siga el protocolo de supervivencia extrema. Si es un civil, no intente huir o mudarse de país; el 0404 no necesita los satélites de la agencia para encontrarlo, puede localizarlo y cercarlo por sus propios medios en cuestión de horas o días. Actúe con normalidad, mantenga una sumisión psicológica absoluta y rece para no estar en su lista de objetivos activos.</p>
+    </div>
+  </div>
+
+</div>
+
+<div id="alerta-perimetro" class="bloqueo-critico" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; padding: 30px; border: 2px solid #ff0000; background-color: #050000; text-align: center; z-index: 10000; box-shadow: 0 0 50px #000000; transition: opacity 0.5s;">
+  <p style="color: #ff3333; font-weight: bold; font-size: 1.3em; margin: 0 0 15px 0; letter-spacing: 1px;">
+    🛑 VIOLACIÓN DE PERÍMETRO INFORMATIVO 🛑
+  </p>
+  <p style="color: #ffffff; font-size: 0.9em; line-height: 1.6; margin: 0; text-align: justify;">
+    <strong>ATENCIÓN:</strong> Ha intentado sobrepasar la línea de seguridad para acceder a los datos clasificados o confidenciales del <span style="color: #ff3333; font-weight: bold;">Activo 0404</span>. La pantalla se ha congelado temporalmente. El servidor central advierte que está violando un perímetro de máxima restricción y debe abortar la lectura de inmediato.
+  </p>
+  <p style="color: #888888; font-size: 0.75em; margin-top: 15px; animation: parpadeoAlerta 0.5s infinite;">
+    [ ESPERANDO RESPUESTA DEL SERVIDOR... CORROMPIENDO CORTAFUEGOS ]
+  </p>
+</div>
+
+<script>
+  // Manejo del Reproductor de Audio
+  window.addEventListener('load', () => {
+    var audio = document.getElementById('sonido-agencia');
+    audio.play().catch(function(error) {
+      document.addEventListener('click', function() {
+        audio.play().catch(function(e){});
+      }, { once: true });
+      document.addEventListener('touchstart', function() {
+        audio.play().catch(function(e){});
+      }, { once: true });
+    });
+  });
+
+  // Animación Inicial del Encabezado
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      var intro = document.getElementById('pantalla-introduccion');
+      var txt = document.getElementById('texto-legal');
+      if(txt) txt.style.opacity = '0';
+      intro.classList.add('interfaz-reestructurada');
+      var foto = document.getElementById('bloque-fotografia');
+      if(foto) {
+        foto.style.maxWidth = "110px";
+        foto.style.margin = "5px auto";
+        foto.style.transition = "all 1.5s ease-in-out";
+      }
+    }, 5500);
+  });
+
+  // Lógica del Evento de Desplazamiento (Scroll)
+  let alertaDisparada = false;
+  let brechaAbierta = false;
+
+  window.addEventListener('scroll', function() {
+    // Al bajar un poco la pantalla se activa la simulación táctica
+    if (window.scrollY > 20 && !alertaDisparada && !brechaAbierta) {
+      alertaDisparada = true;
+      
+      var panel = document.getElementById('alerta-perimetro');
+      panel.style.display = 'block';
+      document.body.style.overflow = 'hidden'; 
+
+      var audio = document.getElementById('sonido-agencia');
+      audio.loop = true;
+      audio.play().catch(function(e){});
+
+      // El panel dura 4 segundos y luego revela los archivos encriptados
+      setTimeout(() => {
+        brechaAbierta = true;
+        panel.style.opacity = '0';
+        
+        setTimeout(() => {
+          panel.style.display = 'none';
+          document.body.style.overflow = 'auto'; 
+          
+          document.getElementById('zona-restringida').style.display = 'block';
+          document.getElementById('interfaz-global').classList.add('efecto-brecha-activa');
+        }, 500); 
+
+      }, 4000); 
+    }
+  });
+</script>
