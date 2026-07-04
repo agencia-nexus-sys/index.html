@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS NETWORK</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      background-color: #000000 !important;
+      margin: 0; padding: 0; color: #b0b0b0;
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
+    }
+    @keyframes parpadeoAlerta {
+      0%, 100% { opacity: 1; text-shadow: 0 0 10px #ff0000; }
+      50% { opacity: 0.3; text-shadow: none; }
+    }
+    @keyframes pulsoBoton {
+      0%, 100% { box-shadow: 0 0 15px #ff0000; border-color: #ff5555; }
+      50% { box-shadow: 0 0 30px #ff3333; border-color: #ffffff; }
+    }
+    .alerta-parpadeante { animation: parpadeoAlerta 1s infinite; }
+    
+    .boton-tactico {
+      background-color: #ff0000 !important;
+      color: #ffffff !important;
+      border: 2px solid #ffffff; 
+      padding: 18px 24px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1em; 
+      font-weight: bold; 
+      cursor: pointer;
+      margin-top: 25px; 
+      letter-spacing: 1px;
+      width: 100%;
+      border-radius: 6px;
+      text-transform: uppercase;
+      animation: pulsoBoton 1.5s infinite;
+    }
+    .boton-tactico:active { background-color: #b30000 !important; transform: scale(0.98); }
+  </style>
+</head>
+<body>
+
+<div id="interfaz-global" style="background-color: #000000; min-height: 100vh; width: 100%; padding-bottom: 60px;">
+  
+  <div id="pantalla-introduccion" style="text-align: center; margin: 0 auto; padding: 25px; border: 1px solid #333333; max-width: 90%; background-color: #0a0a0a;">
+    <p class="alerta-parpadeante" style="color: #ff3333; font-weight: bold; font-size: 1.1em; margin: 0;">⚠️ ADVERTENCIA: ACCESO RESTRINGIDO DE MÁXIMA PRIORIDAD ⚠️</p>
+    <p style="font-size: 0.75em; color: #777777; margin: 5px 0 0 0;">REGISTRO DE AFILIACIÓN PENAL • DECRETO CENTRAL 404/06</p>
+    <div style="margin: 25px auto; max-width: 280px;">
+      <img src="activo0404.jpg" alt="ACTIVO 0404" style="width: 100%; height: auto; border: 1px solid #444444;">
+      <p style="color: #ffffff; font-size: 0.85em; font-weight: bold; margin-top: 12px; border-top: 1px dashed #333333; padding-top: 8px;">IDENTIFICACIÓN DEL ASESINO ACTIVO 0404</p>
+    </div>
+  </div>
+
+  <div id="informacion-general" style="color: #b0b0b0; padding: 20px; max-width: 800px; margin: 20px auto; line-height: 1.6;">
+    <h3 style="color: #ffffff; border-bottom: 1px solid #333333; padding-bottom: 5px;">I. DATOS DE FILIACIÓN BÁSICA</h3>
+    <p><strong>DESIGNACIÓN DE RED:</strong> Activo 0404</p>
+    <p><strong>ESTADO OPERATIVO:</strong> En fuga / Alto riesgo.</p>
+    <p><strong>PERFIL DE CONDUCTA:</strong> Ausencia total de empatía, alta adaptabilidad en entornos hostiles y entrenamiento avanzado enfocado en operaciones de neutralización.</p>
+    
+    <br>
+    <h3 style="color: #ffffff; border-bottom: 1px solid #333333; padding-bottom: 5px;">II. REGISTRO DE INCIDENTES</h3>
+    <p>Múltiples registros enlazan al Activo con operaciones de asalto táctico y ejecuciones selectivas. Los informes forenses indican el uso recurrente de herramientas de alta precisión.</p>
+    
+    <div id="zona-restringida" style="display: none; border-top: 2px dashed #ff0000; margin
+
