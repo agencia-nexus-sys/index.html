@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS NETWORK</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      background-color: #000000 !important;
+      margin: 0; padding: 0; color: #b0b0b0;
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
+    }
+    @keyframes parpadeoAlerta {
+      0%, 100% { opacity: 1; text-shadow: 0 0 10px #ff0000; }
+      50% { opacity: 0.3; text-shadow: none; }
+    }
+    @keyframes pulsoBoton {
+      0%, 100% { box-shadow: 0 0 15px #ff0000; border-color: #ff5555; }
+      50% { box-shadow: 0 0 30px #ff3333; border-color: #ffffff; }
+    }
+    .alerta-parpadeante { animation: parpadeoAlerta 1s infinite; }
+    
+    .boton-tactico {
+      background-color: #ff0000 !important;
+      color: #ffffff !important;
+      border: 2px solid #ffffff; 
+      padding: 18px 24px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1em; 
+      font-weight: bold; 
+      cursor: pointer;
+      margin-top: 25px; 
+      letter-spacing: 1px;
+      width: 100%;
+      border-radius: 6px;
+      text-transform: uppercase;
+      animation: pulsoBoton 1.5s infinite;
+    }
+    .boton-tactico:active { background-color: #b30000 !important; transform: scale(0.98); }
+  </style>
+</head>
+<body>
+
+<div id="interfaz-global" style="background-color: #000000; min-height: 100vh; width: 100%; padding-bottom: 60px;">
+  
+  <div id="pantalla-introduccion" style="text-align: center; margin: 0 auto; padding: 25px; border: 1px solid #333333; max-width: 90%; background-color: #0a0a0a;">
+    <p class="alerta-parpadeante" style="color: #ff3333; font-weight: bold; font-size: 1.1em; margin: 0;">⚠️ ADVERTENCIA: ACCESO RESTRINGIDO DE MÁXIMA PRIORIDAD ⚠️</p>
+    <p style="font-size: 0.75em; color: #777777; margin: 5px 0 0 0;">REGISTRO DE AFILIACIÓN PENAL • DECRETO CENTRAL 404/06</p>
+    <div style="margin: 25px auto; max-width: 280px;">
+      <img src="activo0404.jpg" alt="ACTIVO 0404" style="width: 100%; height: auto; border: 1px solid #444444;">
+      <p style="color: #ffffff; font-size: 0.85em; font-weight: bold; margin-top: 12px; border-top: 1px dashed #333333; padding-top: 8px;">IDENTIFICACIÓN DEL ASESINO ACTIVO 0404</p>
+    </div>
+  </div>
+
+  <div id="informacion-general" style="color: #b0b0b0; padding: 20px; max-width: 800px; margin: 20px auto; line-height: 1.6;">
+    <h3 style="color: #ffffff; border-bottom: 1px solid #333333; padding-bottom: 5px;">I. DATOS DE FILIACIÓN BÁSICA</h3>
+    <p><strong>DESIGNACIÓN DE RED:</strong> Activo 0404</p>
+    <p><strong>ESTADO OPERATIVO:</strong> En fuga / Alto riesgo.</p>
+    <p><strong>PERFIL DE CONDUCTA:</strong> Ausencia total de empatía, alta adaptabilidad en entornos hostiles y entrenamiento avanzado enfocado en operaciones de neutralización.</p>
+    
+    <br>
+    <h3 style="color: #ffffff; border-bottom: 1px solid #333333; padding-bottom: 5px;">II. REGISTRO DE INCIDENTES</h3>
+    <p>Múltiples registros enlazan al Activo con operaciones de asalto táctico y ejecuciones selectivas. Los informes forenses indican el uso recurrente de herramientas de alta precisión.</p>
+    
+    <div id="zona-restringida" style="display: none; border-top: 2px dashed #ff0000; margin-top: 40px; padding-top: 20px;">
+      <h3 style="color: #ff3333; border-bottom: 1px solid #ff0000; padding-bottom: 5px;">⚠️ [NEXUS NETWORK - ARCHIVO DE PERSONAL INTERNO] ⚠️</h3>
+      <p id="parrafo-voz-1">AVISO DE CONTROL DE RIESGO DE ALTO NIVEL. Este expediente es de lectura obligatoria. El Activo cero cuatro cero cuatro es incontrolable y representa un peligro de muerte inmediato tanto para objetivos externos como para cualquier miembro de esta organización.</p>
+      
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px;">I. ESPECIFICACIONES DE REGISTRO E IDENTIFICACIÓN</h4>
+      <p id="parrafo-voz-2">Identificación Nominal. Ninguna. El activo carece de nombre legal o identidad civil rastreable. Es identificado exclusivamente como Activo cero cuatro cero cuatro.</p>
+      <p id="parrafo-voz-3">Mimetización y Cobertura Social. El activo simula una rutina ordinaria con total naturalidad para pasar desapercibido. No posee vínculos afectivos, considera a los civiles herramientas logísticas o escudos tácticos dentro de su perímetro operativo.</p>
+      
+      <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px;">II. DIRECTRICES DE SUPERVIVENCIA EXTRAORDINARIA</h4>
+      <p id="parrafo-voz-4">El Botón de Seguridad de Emergencia. Si es detectado por el cero cuatro cero cuatro y requiere comprar valiosos segundos para su vida, presione inmediatamente el interruptor de seguridad de la celda. Esto activará el despliegue automático de una puerta de acero reforzado de alta densidad.</p>
+      <p id="parrafo-voz-5">Ruta de Extracción por Aeronave. La pulsación del botón de seguridad desbloqueará simultáneamente una compuerta hidráulica en el Sector Adyacente, dejando expuestos los vehículos de evacuación rápida de la agencia de despegue inmediato.</p>
+    </div>
+  </div>
+</div>
+
+<div id="alerta-perimetro" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 92%; max-width: 500px; padding: 30px; border: 2px solid #ff0000; background-color: #0b0101; text-align: center; z-index: 10000; box-shadow: 0 0 60px #ff0000; border-radius: 8px;">
+  <p style="color: #ff3333; font-weight: bold; font-size: 1.3em; margin: 0 0 15px 0;">🛑 VIOLACIÓN DE PERÍMETRO INFORMATIVO 🛑</p>
+  <p style="color: #ffffff; font-size: 0.95em; line-height: 1.6; margin: 0; text-align: justify;">
+    <strong>ATENCIÓN:</strong> Ha intentado sobrepasar la línea de seguridad para acceder a los datos clasificados del <span style="color: #ff3333; font-weight: bold;">Activo 0404</span>. El servidor central advierte que está violando un perímetro de máxima restricción y requiere confirmación de interfaz.
+  </p>
+  <button id="btn-autorizar-voz" class="boton-tactico">⚠️ Sincronizar Canal de Voz ⚠️</button>
+  <p style="color: #aaaaaa; font-size: 0.8em; margin-top: 18px; animation: parpadeoAlerta 0.5s infinite;">[ ESPERANDO CONFIRMACIÓN DEL OPERADOR... ]</p>
+</div>
+
+<script>
+  let brechaAbierta = false;
+  let audioAgencia = null;
+
+  function activarMotorVozInterno() {
+    window.speechSynthesis.cancel();
+    let despertar = new SpeechSynthesisUtterance("");
+    window.speechSynthesis.speak(despertar);
+  }
+
+  function ejecutarTransmisionVoz() {
+    window.speechSynthesis.cancel();
+    
+    let textoCompleto = 
+      document.getElementById('parrafo-voz-1').innerText + " " +
+      document.getElementById('parrafo-voz-2').innerText + " " +
+      document.getElementById('parrafo-voz-3').innerText + " " +
+      document.getElementById('parrafo-voz-4').innerText + " " +
+      document.getElementById('parrafo-voz-5').innerText;
+
+    let fragmentoUtterance = new SpeechSynthesisUtterance(textoCompleto);
+    fragmentoUtterance.lang = 'es-ES'; 
+    fragmentoUtterance.rate = 0.95; 
+    fragmentoUtterance.pitch = 0.80;
+    
+    window.speechSynthesis.speak(fragmentoUtterance);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', activarMotorVozInterno, { once: true });
+    document.addEventListener('touchstart', activarMotorVozInterno, { once: true });
+
+    const botonVoz = document.getElementById('btn-autorizar-voz');
+    
+    setTimeout(() => {
+      if (!brechaAbierta) {
+        var panel = document.getElementById('alerta-perimetro');
+        if(panel) {
+          panel.style.display = 'block';
+          document.body.style.overflow = 'hidden'; 
+        }
+      }
+    }, 3000);
+
+    const activarSincronizacion = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if(brechaAbierta) return;
+
+      try {
+        if (!audioAgencia) {
+          audioAgencia = new Audio('alarma.mp3');
+          audioAgencia.loop = true;
+        }
+        audioAgencia.play().catch(function(err){});
+      } catch(error) {}
+
+      ejecutarTransmisionVoz();
+
+      document.getElementById('alerta-perimetro').style.display = 'none';
+      document.body.style.overflow = 'auto'; 
+      document.getElementById('zona-restringida').style.display = 'block';
+      brechaAbierta = true;
+    };
+
+    botonVoz.addEventListener('click', activarSincronizacion);
+    botonVoz.addEventListener('touchstart', activarSincronizacion);
+  });
+</script>
+
+</body>
+</html>
