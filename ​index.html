@@ -90,7 +90,7 @@
     
     <br>
     <h3 style="color: #ffffff; border-bottom: 1px solid #333333; padding-bottom: 5px;">II. REGISTRO DE INCIDENTES</h3>
-    <p>Múltiples registros enlazan al Activo con operaciones de asalto táctico y ejecuciones selectivas. Los informes forenses indican el uso recurrentes de herramientas de alta precisión.</p>
+    <p>Múltiples registros enlazan al Activo con operaciones de asalto táctico y ejecuciones selectivas. Los informes forenses indican el uso recurrente de herramientas de alta precisión.</p>
     
     <p style="text-align: center; color: #555555; font-size: 0.9em; margin-top: 30px; border-top: 1px solid #222; padding-top: 15px;">
       <i>(Desplace la pantalla hacia abajo para sincronizar telemetría táctica...)</i>
@@ -154,15 +154,15 @@
       <strong>Advertencia Crítica:</strong> El operario no debe permanecer más de 24 horas en dicho campamento bajo ninguna circunstancia. El Activo 0404 calculará la trayectoria del impacto y llegará a su posición para ejecutar la neutralización. Su único protocolo teórico es iniciar un desplazamiento inmediato hacia otro país o un refugio temporal de alta densidad. El activo puede localizarlo con facilidad, por lo que el objetivo deberá mantenerse completamente despierto, en constante movimiento y en privación absoluta de sueño si desea prolongar su supervivencia un periodo de tiempo limitado.</p>
 
       <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">VIII. CAPACIDADES TÁCTICAS Y REGISTRO DE LETALIDAD</h4>
-      <p><strong>Capacidad de Improvisación:</strong> Experto maestro en balística, armas blancas y modificaciones tácticas. El activo tiene la capacidad de diseñar y armar artefactos explosivos improvisados (bombas caseras) y armas de fuego funcionales utilizando elementos comunes de cualquier entorno. Cualquier objeto que entre en su campo de visión es catalogado automáticamente como un arma letal.</p>
-      <p><strong>Logística de Suministros:</strong> El activo adquiere armamento de forma constante por canales alternos del Nexo. Mantiene un sistema descentralizado de escondites (navajas de precisión, pistolas compactas y herramientas de sabotaje) distribuidos en su radio de movimiento diario.</p>
+      <p><strong>Capacidad de Improvisación:</strong> Experto maestro en balística, armas blancas y modificaciones tácticas. El activo tiene la capacidad de diseñar y armar artefactos de simulación y herramientas funcionales utilizando elementos comunes de cualquier entorno. Cualquier objeto que entre en su campo de visión es catalogado automáticamente como un recurso operativo.</p>
+      <p><strong>Logística de Suministros:</strong> El activo adquiere equipamiento de forma constante por canales alternos del Nexo. Mantiene un sistema descentralizado de escondites (navajas de precisión, herramientas de rastreo y de sabotaje) distribuidos en su radio de movimiento diario.</p>
 
       <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">IX. ESTATUS DE CONTRATO ACTUAL</h4>
       <p><strong>Misión Asignada:</strong> [FASE DE INFILTRACIÓN]. El Activo 0404 se encuentra desplegado en el sector civil bajo una misión global de alta prioridad dictada por el Consejo. Aunque realiza una rutina ordinaria, el golpe principal aún no ha sido ejecutado. Está a la espera de la señal de activación final.</p>
 
       <h4 style="color: #ff3333; font-size: 1.1em; margin-top: 25px; border-bottom: 1px dashed #333;">X. DIRECTIVA DE SEGURIDAD PARA INTRUSOS Y PERSONAL ADYACENTE</h4>
       <p style="border: 1px dashed #ff1a1a; padding: 15px; background-color: rgba(0,0,0,0.85); color: #fff;"><strong>ADVERTENCIA CRÍTICA (PARA CIVILES, AGENTES O FUERZAS GUBERNAMENTALES):</strong><br>
-      Al escanear este identificador QR, el dispositivo táctico del Activo 0404 ha recibido una notification de proximidad con su ubicación exacta. Ha husmeado en los archivos privados del activo más peligroso del mundo.<br><br>
+      Al escanear este identificador QR, el dispositivo táctico del Activo 0404 ha recibido una notificación de proximidad con su ubicación exacta. Ha husmeado en los archivos privados del activo más peligroso del mundo.<br><br>
       No intente mentirle si lo tiene cerca; lo detectará al instante. Si usted pertenece a la agencia o a las fuerzas del orden, rinda respeto absoluto y siga el protocolo de supervivencia extrema. Si es un civil, no intente huir o mudarse de país; el 0404 no necesita los satélites de la agencia para encontrarlo, puede localizarlo y cercarlo por sus propios medios en cuestión de horas o días. Actúe con normalidad, mantenga una sumisión psicológica absoluta y rece para no estar en su lista de objetivos activos.</p>
     </div>
   </div>
@@ -185,11 +185,11 @@
   let alertaDisparada = false;
   let brechaAbierta = false;
   
-  // Declaración de instancias de sonido nativas
+  // Instancias de audio del sistema
   let audioAlarma = null;
   let audioVozNarrador = null;
 
-  // Animación Inicial del Encabezado
+  // Animación del Encabezado (Minimizar foto a los 5.5s)
   window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       var intro = document.getElementById('pantalla-introduccion');
@@ -205,9 +205,8 @@
     }, 5500);
   });
 
-  // Lógica del Evento de Desplazamiento (Scroll)
+  // GESTIÓN DEL EVENTO SCROLL: ACTIVACIÓN DEL AUDIO DUAL
   window.addEventListener('scroll', function() {
-    // Al bajar un poco la pantalla se activa la simulación táctica del cartel congelante
     if (window.scrollY > 20 && !alertaDisparada && !brechaAbierta) {
       alertaDisparada = true;
       
@@ -215,7 +214,7 @@
       panel.style.display = 'block';
       document.body.style.overflow = 'hidden'; 
 
-      // El panel dura exactamente 4 segundos en pantalla bloqueada y luego se desvanece
+      // 4 Segundos de bloqueo simulado, luego se libera y entra la voz
       setTimeout(() => {
         brechaAbierta = true;
         panel.style.opacity = '0';
@@ -224,29 +223,29 @@
           panel.style.display = 'none';
           document.body.style.overflow = 'auto'; 
           
-          // REVELACIÓN DE DATOS RESTRINGIDOS
+          // Revelar los datos tácticos en pantalla
           document.getElementById('zona-restringida').style.display = 'block';
           document.getElementById('interfaz-global').classList.add('efecto-brecha-activa');
           
-          // ACTIVACIÓN SIMULTÁNEA DEL ENTORNO DE AUDIO MP3
+          // DISPARO AUTOMÁTICO DE LOS ARCHIVOS MP3
           try {
-            // 1. Despliegue de la Alarma Táctica Continua
+            // 1. Alarma táctica continua (Volumen bajo de fondo)
             if (!audioAlarma) {
               audioAlarma = new Audio('alarma.mp3');
               audioAlarma.loop = true;
-              audioAlarma.volume = 0.25; // Volumen de fondo equilibrado
+              audioAlarma.volume = 0.20; 
             }
-            audioAlarma.play().catch(function(err){ console.log("Bloqueo de Alarma:", err); });
+            audioAlarma.play().catch(function(err){ console.log("Canal alarma restringido:", err); });
 
-            // 2. Despliegue de la Locución Profesional de Inteligencia Militar
+            // 2. Transmisión del expediente de la escuela (Volumen máximo)
             if (!audioVozNarrador) {
               audioVozNarrador = new Audio('voz-expediente.mp3');
-              audioVozNarrador.volume = 1.0; // Prioridad auditiva máxima
+              audioVozNarrador.volume = 1.0; 
             }
-            audioVozNarrador.play().catch(function(err){ console.log("Bloqueo de Voz:", err); });
+            audioVozNarrador.play().catch(function(err){ console.log("Canal voz restringido:", err); });
 
           } catch(error) {
-            console.log("Fallo crítico en los canales de audio del sistema:", error);
+            console.log("Error en la inicialización multimedia:", error);
           }
 
         }, 500); 
